@@ -7,7 +7,8 @@
 #define FPS 12
 #define CELL_SIZE 25
 
-int main(void) {
+int main(void)
+{
     Color GREY = {29, 29, 29, 255};
 
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Game of Life");
@@ -21,7 +22,10 @@ int main(void) {
 
     std::cout << simulation.CountLiveNeighbors(3, 4) << std::endl;
 
-    while (!WindowShouldClose()) {
+    while (!WindowShouldClose())
+    {
+        simulation.Update();
+
         BeginDrawing();
         ClearBackground(GREY);
         simulation.Draw();
