@@ -40,6 +40,8 @@ int Simulation::CountLiveNeighbors(int row, int column)
 
 void Simulation::Update()
 {
+    if (!IsRunning()) return;
+    
     for (int row = 0; row < grid.getRows(); row++)
     {
         for (int column = 0; column < grid.GetColumns(); column++)
