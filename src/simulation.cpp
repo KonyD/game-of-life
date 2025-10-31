@@ -41,7 +41,7 @@ int Simulation::CountLiveNeighbors(int row, int column)
 void Simulation::Update()
 {
     if (!IsRunning()) return;
-    
+
     for (int row = 0; row < grid.getRows(); row++)
     {
         for (int column = 0; column < grid.GetColumns(); column++)
@@ -68,4 +68,25 @@ void Simulation::Update()
         }
     }
     grid = tempGrid;
+}
+
+void Simulation::ClearGrid()
+{
+    if (!IsRunning()) {
+        grid.Clear();
+    }
+}
+
+void Simulation::CreateRandomState()
+{
+    if (!IsRunning()) {
+        grid.FillRandom();
+    }
+}
+
+void Simulation::ToggleCell(int row, int column)
+{
+    if (!IsRunning()) {
+        grid.ToggleCell(row, column);
+    }
 }

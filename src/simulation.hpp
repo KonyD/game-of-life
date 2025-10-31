@@ -7,7 +7,7 @@ public:
     Simulation(int width, int height, int cellSize)
         : grid(width, height, cellSize), tempGrid(width, height, cellSize), running(false)
     {
-        grid.FillRandom();
+        
     }
     void Draw();
     void SetCellValue(int row, int col, int value);
@@ -16,6 +16,9 @@ public:
     bool IsRunning() {return running;}
     void Start() {running = true;}
     void Stop() {running = false;}
+    void ClearGrid();
+    void CreateRandomState();
+    void ToggleCell(int row, int column);
 private:
     Grid grid;
     Grid tempGrid;

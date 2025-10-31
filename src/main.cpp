@@ -18,6 +18,12 @@ int main(void)
 
     while (!WindowShouldClose())
     {
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+            Vector2 mousePosition = GetMousePosition();
+            int row = mousePosition.y / CELL_SIZE;
+            int column = mousePosition.x / CELL_SIZE;
+            simulation.ToggleCell(row, column);
+        }
         if (IsKeyPressed(KEY_ENTER))
         {
             if (simulation.IsRunning())
@@ -30,14 +36,25 @@ int main(void)
                 simulation.Start();
                 SetWindowTitle("Game of Life is running...");
             }
-        } else if (IsKeyPressed(KEY_F)) {
+        }
+        else if (IsKeyPressed(KEY_F))
+        {
             FPS += 2;
             SetTargetFPS(FPS);
-        } else if (IsKeyPressed(KEY_S)) {
-            if (FPS > 5) {
+        }
+        else if (IsKeyPressed(KEY_S))
+        {
+            if (FPS > 5)
+            {
                 FPS -= 2;
                 SetTargetFPS(FPS);
             }
+        }
+        else if (IsKeyPressed(KEY_K)) {
+            simulation.CreateRandomState();
+        }
+        else if (IsKeyPressed(KEY_C)) {
+            simulation.ClearGrid();
         }
 
         simulation.Update();
