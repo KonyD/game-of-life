@@ -1,5 +1,4 @@
 #include "raylib.h"
-#include <iostream>
 #include "simulation.hpp"
 
 #define WINDOW_WIDTH 750
